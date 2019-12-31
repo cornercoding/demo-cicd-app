@@ -37,14 +37,6 @@ pipeline {
             }
         }     
         
-        stage ('Verify Sonar') {
-
-            steps {
-                withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'mvn sonar:sonar -Dsonar.projectKey=demo-cicd-webapp -Dsonar.host.url=http://17.6.1.4:9000 -Dsonar.login=f9bf19095687fe6df95029606312c7efffa2299b'
-                }
-            }
-        }
         
         stage ('Package') {
             steps {

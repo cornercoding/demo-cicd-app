@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<title>Home - Brand</title>
+
+
+
+
+
+
+<link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	th:href="@{/bootstrap/css/bootstrap.min.css}" media="screen"></link>
+
+
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
+
+
+<link rel="stylesheet" href="../static/fonts/font-awesome.min.css"
+	th:href="@{/onts/font-awesome.min.css}" media="screen">
+</head>
+
+<body id="page-top" style="background-color: red">
+	<header class="masthead text-white text-center" th:style="${color}">
+		<div class="container">
+			<img class="img-fluid d-block mx-auto mb-5" src="img/profile.png">
+			<h1>Hi, I am a Sample web app</h1>
+			<hr class="star-light">
+			<h2 class="font-weight-light mb-0">
+				Deployed version : <span th:text="${version}"></span>
+			</h2>
+		</div>
+	</header>
+	<div class="copyright py-4 text-center text-white">
+		<div class="container">
+			<small>Copyright ©&nbsp;Brand 2019</small>
+		</div>
+	</div>
+	<div class="d-lg-none scroll-to-top position-fixed rounded">
+		<a class="d-block js-scroll-trigger text-center text-white rounded"
+			href="#page-top"><i class="fa fa-chevron-up"></i></a>
+	</div>
+
+
+	<script type="text/javascript" src="../static/js/jquery.min.js"
+		th:src="@{/js/jquery.min.js}"></script>
+
+	<script type="text/javascript"
+		src="../static/bootstrap/js/bootstrap.min.js"
+		th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+
+	<script type="text/javascript" src="../static/js/freelancer.js"
+		th:src="@{/js/freelancer.js}"></script>
+
+
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+</body>
+
+</html>

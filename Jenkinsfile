@@ -19,30 +19,20 @@ pipeline {
             }
         }
         
-         stage ('Integration Tests') {
-
+        stage ('Verify Sonar') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'mvn test'
+                    bat 'mvn sonar:sonar -Dsonar.projectKey=demo-cicd-webapp -Dsonar.host.url=http://localhost:9000 -Dsonar.login=4317c2028ac27f4524d52707d962517f08f03442'
                 }
             }
         }
-        
-    	stage ('Performance Tests') {
-
-            steps {
-                withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'mvn test'
-                }
-            }
-        }     
-        
+         
         
         stage ('Package') {
             steps {
             
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'mvn resources:resources package -Dbuild.number=${BUILD_NUMBER}'
+                    sh 'mvn resources:resources package -DskipTests=true -Dbuild.number=${BUILD_NUMBER}'
                 }
             }
         }
@@ -51,7 +41,7 @@ pipeline {
             steps {
             
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    sh 'mvn clean wildfly:deploy -DwildflyHostname=localhost -DwildflyPort=9990 -DwildflyUsername=admin -DwildflyPassword=admin'
+                    sh 'mvn clean wildfly:deploy -DskipTests=true -DwildflyHostname=localhost -DwildflyPort=9990 -DwildflyUsername=admin -DwildflyPassword=admin'
                 }
             }
         }

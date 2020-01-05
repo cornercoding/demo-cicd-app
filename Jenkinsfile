@@ -22,7 +22,7 @@ pipeline {
         stage ('Verify Sonar') {
             steps {
                 withMaven(maven : 'apache-maven-3.6.1') {
-                    bat 'mvn sonar:sonar -Dsonar.projectKey=demo-cicd-webapp -Dsonar.host.url=http://localhost:9000 -Dsonar.login=4317c2028ac27f4524d52707d962517f08f03442'
+                    sh 'mvn sonar:sonar -Dsonar.projectKey=demo-cicd-webapp -Dsonar.host.url=http://localhost:9000 -Dsonar.login=4317c2028ac27f4524d52707d962517f08f03442'
                 }
             }
         }

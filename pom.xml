@@ -77,10 +77,10 @@
    <artifactId>wildfly-maven-plugin</artifactId>
    <version>1.0.2.Final</version>
    <configuration>
-      <hostname>${hostname}</hostname>
-      <port>9990</port>
-      <username>administrator</username>
-      <password>Password1!</password>
+      <hostname>${wildflyHostname}</hostname>
+      <port>${wildflyPort}</port>
+      <username>${wildflyUsername}</username>
+      <password>${wildflyPassword}</password>
    </configuration>
 </plugin>
 		</plugins>

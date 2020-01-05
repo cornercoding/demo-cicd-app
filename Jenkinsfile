@@ -64,5 +64,14 @@ pipeline {
         	}
         
         }
+        
+        stage ('deploy to jboss') {
+            steps {
+            
+                withMaven(maven : 'apache-maven-3.6.1') {
+                    sh 'mvn clean wildfly:deploy -DwildflyHostname=localhost -DwildflyPort=9992 -DwildflyUsername=admin -DwildflyPassword=admin'
+                }
+            }
+        }
     }
 }
